@@ -38,25 +38,41 @@ namespace JobWorker
                 process.InstanceEndpoints[internalEndpointName].IPEndpoint.ToString(),
                 internalEndpointName))).ToList();
 
+            #region algorithm for dividing interval to equidistant subintervals
             int brotherInstances = internalEndPoints.Count;
             int totalSum = 0;
+            int result = to / brotherInstances;
+            int remainder = to % brotherInstances;
+            int lastParam = 0, currentBeginning = 0;
 
             Task<int>[] tasks = new Task<int>[brotherInstances];
 
             for(int i=0; i< brotherInstances; i++)
             {
+                currentBeginning = lastParam;
+                lastParam += result;
+
+                if (remainder > 0)
+                {
+                    lastParam++;
+                    remainder--;
+                }
+
                 Trace.WriteLine($"Calling node at: {internalEndPoints[i].ToString()}", "Information");
                 int index = i;
+                int openInterval = currentBeginning + 1;
+                int closeInterval = lastParam;
 
                 Task<int> calculatePartialSum = new Task<int>(() =>
                     {
                         IPartialJob proxy = new ChannelFactory<IPartialJob>(binding, internalEndPoints[index]).CreateChannel();
-                        return proxy.DoSum(0, to);
+                        return proxy.DoSum(openInterval, closeInterval);
                     });
                 calculatePartialSum.Start();
 
                 tasks[index] = calculatePartialSum;
             }
+            #endregion
 
             Task.WaitAll(tasks);
 

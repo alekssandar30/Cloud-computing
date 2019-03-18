@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="JobServer.cs" />
     <Compile Include="JobServerProvider.cs" />
+    <Compile Include="PartialJobServer.cs" />
+    <Compile Include="PartialJobServerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkerRole.cs" />
   </ItemGroup>

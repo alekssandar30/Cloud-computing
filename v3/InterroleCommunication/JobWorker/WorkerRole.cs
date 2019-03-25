@@ -18,7 +18,7 @@ namespace JobWorker
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
         public static JobServer proxy = new JobServer();
-
+        PartialJobServer partialServer = new PartialJobServer();
         
 
         public override void Run()
@@ -43,6 +43,7 @@ namespace JobWorker
             bool result = base.OnStart();
 
             proxy.Open();
+            partialServer.Open();
             Trace.TraceInformation("JobWorker has been started");
 
             return result;
@@ -52,6 +53,7 @@ namespace JobWorker
         {
             Trace.TraceInformation("JobWorker is stopping");
             proxy.Close();
+            partialServer.Close();
             this.cancellationTokenSource.Cancel();
             this.runCompleteEvent.WaitOne();
 

@@ -69,6 +69,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InternalServer.cs" />
+    <Compile Include="InternalServerProvider.cs" />
     <Compile Include="JobServer.cs" />
     <Compile Include="JobServerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

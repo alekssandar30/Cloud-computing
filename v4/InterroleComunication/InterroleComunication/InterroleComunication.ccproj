@@ -46,12 +46,22 @@
       <RoleName>WorkerRole1</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
+    <ProjectReference Include="..\WorkerRole2\WorkerRole2.csproj">
+      <Name>WorkerRole2</Name>
+      <Project>{b9e840c2-b410-4282-98fa-ff955127b368}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>WorkerRole2</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WorkerRole1Content\" />
+    <Folder Include="WorkerRole2Content\" />
   </ItemGroup>
   <ItemGroup>
     <DiagnosticsConfiguration Include="WorkerRole1Content\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="WorkerRole2Content\diagnostics.wadcfgx" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

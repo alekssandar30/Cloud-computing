@@ -8,17 +8,17 @@ namespace WorkerRole2
 {
     public class Poruka
     {
-        private string firstInstance;
+        private int firstInstance;
 
-        public string FirstInstance
+        public int FirstInstance
         {
             get { return firstInstance; }
             set { firstInstance = value; }
         }
 
-        private string secondInstance;
+        private int secondInstance;
 
-        public string SecondInstance
+        public int SecondInstance
         {
             get { return secondInstance; }
             set { secondInstance = value; }
@@ -32,7 +32,7 @@ namespace WorkerRole2
             set { message = value; }
         }
 
-        public Poruka(string first, string second, string mess)
+        public Poruka(int first, int second, string mess)
         {
             FirstInstance = first;
             SecondInstance = second;
@@ -42,6 +42,7 @@ namespace WorkerRole2
         public override string ToString()
         {
             string result = "";
+            
             result += $"FirstInstanceId: {FirstInstance}\nSecondInstanceId: {SecondInstance}\n Message: {Message}";
 
             return result;

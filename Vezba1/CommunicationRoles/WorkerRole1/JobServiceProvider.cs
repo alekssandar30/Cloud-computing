@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,8 @@ namespace WorkerRole1
     {
         public string Send(string message)
         {
-            throw new NotImplementedException();
+            Trace.TraceInformation($"Message received:  {message}\n");
+            return "Message succesfully sent.\n";
         }
     }
 }

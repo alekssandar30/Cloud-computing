@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{601BF4E9-4B0F-45CF-9DB2-55D1F839D29A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole2", "WorkerRole2\WorkerRole2.csproj", "{83006A94-2266-4D82-A0BD-A19013EF059E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{601BF4E9-4B0F-45CF-9DB2-55D1F839D29A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{601BF4E9-4B0F-45CF-9DB2-55D1F839D29A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{601BF4E9-4B0F-45CF-9DB2-55D1F839D29A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83006A94-2266-4D82-A0BD-A19013EF059E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83006A94-2266-4D82-A0BD-A19013EF059E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83006A94-2266-4D82-A0BD-A19013EF059E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83006A94-2266-4D82-A0BD-A19013EF059E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

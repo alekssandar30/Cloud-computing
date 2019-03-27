@@ -18,7 +18,7 @@ namespace WorkerRole1
 
         public string Send(string message)
         {
-            //Trace.TraceInformation($"Message received:  {message}\n");
+            Trace.TraceInformation($"Message received:  {message}\n");
             //return "Message succesfully sent.\n";
 
             //salji instanci ciji je id za 1 manji od trenutne 

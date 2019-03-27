@@ -17,6 +17,7 @@ namespace WorkerRole1
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
         JobServer jobServer = new JobServer();
+        InternalServer internalServer = new InternalServer();
 
         public override void Run()
         {
@@ -42,6 +43,7 @@ namespace WorkerRole1
 
             bool result = base.OnStart();
             jobServer.Open();
+            internalServer.Open();
             Trace.TraceInformation("WorkerRole1 has been started");
 
             return result;
@@ -56,6 +58,7 @@ namespace WorkerRole1
 
             base.OnStop();
             jobServer.Close();
+            internalServer.Close();
             Trace.TraceInformation("WorkerRole1 has stopped");
         }
 

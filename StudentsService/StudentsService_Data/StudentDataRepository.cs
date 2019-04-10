@@ -20,10 +20,11 @@ namespace StudentsService_Data
             CloudTableClient tableClient = new CloudTableClient(
                 new Uri(_storageAccount.TableEndpoint.AbsoluteUri), _storageAccount.Credentials);
             _table = tableClient.GetTableReference("StudentTable");
+            _table.DeleteIfExists();
             _table.CreateIfNotExists();
         }
 
-        public IQueryable<Student> RetrieveAllStudents()
+        public IQueryable<Student> RetrieveAllIndexes()
         {
             var result = from g in _table.CreateQuery<Student>()
                          where g.PartitionKey == "Student"
@@ -33,6 +34,7 @@ namespace StudentsService_Data
 
         public void AddStudent(Student newStudent)
         {
+            // Samostalni rad: izmestiti tableName u konfiguraciju servisa.
             TableOperation insertOperation = TableOperation.Insert(newStudent);
             _table.Execute(insertOperation);
         }

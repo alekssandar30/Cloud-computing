@@ -15,17 +15,17 @@ namespace JobWorker
 
         public void AddStudent(string indexNo, string name, string lastName)
         {
-            Student s = new Student(indexNo);
-            s.Name = name;
-            s.LastName = lastName;
+            Student noviStudent = new Student(indexNo);
+            noviStudent.Name = name;
+            noviStudent.LastName = lastName;
 
-            studentRepo.AddStudent(s);
+            studentRepo.AddStudent(noviStudent);
             Trace.TraceInformation("Student dodat.");
         }
 
         public List<string> RetrieveAllIndexes()
         {
-            var temp = studentRepo.RetrieveAllStudents().ToList().Select(s => s.RowKey);
+            var temp = studentRepo.RetrieveAllIndexes().ToList().Select(s => s.RowKey);
             return temp.ToList();
         }
     }
